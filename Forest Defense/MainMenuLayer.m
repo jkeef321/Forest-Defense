@@ -8,7 +8,7 @@
 
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "MainMenuLayer.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -16,7 +16,7 @@
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
-@implementation HelloWorldLayer
+@implementation MainMenuLayer
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -25,7 +25,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	MainMenuLayer *layer = [MainMenuLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -42,7 +42,7 @@
 	if( (self=[super init]) ) {
 		
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Main Menu" fontName:@"Marker Felt" fontSize:64];
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
