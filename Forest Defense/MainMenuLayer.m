@@ -42,7 +42,7 @@
 	if( (self=[super init]) ) {
 		
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Main Menu" fontName:@"Marker Felt" fontSize:64];
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Forest Defense" fontName:@"Marker Felt" fontSize:64];
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
@@ -53,8 +53,14 @@
 		// add the label as a child to this Layer
 		[self addChild: label];
 		
+        CCMenuItem *startGame = [CCMenuItemFont itemWithString:@"Start Game" block:^(id sender) {
+            [CCDirector sharedDirector pushScene:]
+        }];
+        
+        
+        CCMenu *myMenu = [CCMenu menuWithItems:nil];
 		
-		
+		/*
 		//
 		// Leaderboards and Achievements
 		//
@@ -101,6 +107,7 @@
 		
 		// Add the menu to the layer
 		[self addChild:menu];
+         */
 
 	}
 	return self;
