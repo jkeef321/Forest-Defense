@@ -53,13 +53,19 @@
 		// add the label as a child to this Layer
 		[self addChild: label];
 		
-        CCMenuItem *startGame = [CCMenuItemFont itemWithString:@"Start Game" block:^(id sender) {
-            [CCDirector sharedDirector pushScene:]
-        }];
+        CCMenuItem *startGame = [CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(startGame)];
+        
+        CCMenuItem *helpScreen = [CCMenuItemFont itemWithString:@"Help" target:self selector:@selector(helpScreen)];
+        
+        CCMenuItem *aboutScreen = [CCMenuItemFont itemWithString:@"About" target:self selector:@selector(aboutScreen)];
         
         
-        CCMenu *myMenu = [CCMenu menuWithItems:nil];
+        CCMenu *myMenu = [CCMenu menuWithItems: startGame, helpScreen, aboutScreen, nil];
 		
+        [myMenu alignItemsHorizontallyWithPadding:20];
+		[myMenu setPosition:ccp( size.width/2, size.height/2 - 50)];
+        
+        [self addChild: myMenu];
 		/*
 		//
 		// Leaderboards and Achievements
@@ -122,6 +128,22 @@
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
+}
+
+- (void) startGame
+{
+    NSLog(@"Start Game");
+    
+}
+
+- (void) helpScreen
+{
+    NSLog(@"Help Screen");
+}
+
+- (void) aboutScreen
+{
+    NSLog(@"About Screen");
 }
 
 #pragma mark GameKit delegate
