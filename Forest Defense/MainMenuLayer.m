@@ -1,5 +1,5 @@
 //
-//  HelloWorldLayer.m
+//  MainMenuLayer.m
 //  Forest Defense
 //
 //  Created by Justin Keefer on 12/21/13.
@@ -13,12 +13,12 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
-#pragma mark - HelloWorldLayer
+#pragma mark - MainMenuLayer
 
-// HelloWorldLayer implementation
+// MainMenuLayer implementation
 @implementation MainMenuLayer
 
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
+// Helper class method that creates a Scene with the MainMenuLayer as the only child.
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -53,67 +53,27 @@
 		// add the label as a child to this Layer
 		[self addChild: label];
 		
+        //create a startGame menu item
         CCMenuItem *startGame = [CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(startGame)];
         
+        //create a help menu item
         CCMenuItem *helpScreen = [CCMenuItemFont itemWithString:@"Help" target:self selector:@selector(helpScreen)];
         
+        //create a about menu item
         CCMenuItem *aboutScreen = [CCMenuItemFont itemWithString:@"About" target:self selector:@selector(aboutScreen)];
         
-        
+        //add startgame, helpscreen, and aboutscreen to menu item
         CCMenu *myMenu = [CCMenu menuWithItems: startGame, helpScreen, aboutScreen, nil];
 		
+        //aligh the items horizontally
         [myMenu alignItemsHorizontallyWithPadding:20];
+        
+        //set menu position
 		[myMenu setPosition:ccp( size.width/2, size.height/2 - 50)];
         
+        //add menu to the layer
         [self addChild: myMenu];
-		/*
-		//
-		// Leaderboards and Achievements
-		//
 		
-		// Default font size will be 28 points.
-		[CCMenuItemFont setFontSize:28];
-		
-		// to avoid a retain-cycle with the menuitem and blocks
-		__block id copy_self = self;
-		
-		// Achievement Menu Item using blocks
-		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-			
-			
-			GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
-			achivementViewController.achievementDelegate = copy_self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:achivementViewController animated:YES];
-			
-			[achivementViewController release];
-		}];
-		
-		// Leaderboard Menu Item using blocks
-		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-			
-			
-			GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-			leaderboardViewController.leaderboardDelegate = copy_self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
-			
-			[leaderboardViewController release];
-		}];
-
-		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
-		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
-		
-		// Add the menu to the layer
-		[self addChild:menu];
-         */
 
 	}
 	return self;
@@ -130,33 +90,23 @@
 	[super dealloc];
 }
 
+//this function will move the game to the start game layer
 - (void) startGame
 {
     NSLog(@"Start Game");
     
 }
 
+//this function will move the game to the help screen layer
 - (void) helpScreen
 {
     NSLog(@"Help Screen");
 }
 
+//this function will move the game to the about screen layer
 - (void) aboutScreen
 {
     NSLog(@"About Screen");
 }
 
-#pragma mark GameKit delegate
-
--(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
-}
-
--(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
-}
 @end
