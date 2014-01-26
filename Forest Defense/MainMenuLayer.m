@@ -9,6 +9,7 @@
 
 // Import the interfaces
 #import "MainMenuLayer.h"
+#import "StartGAmeLayer.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -94,7 +95,7 @@
 - (void) startGame
 {
     NSLog(@"Start Game");
-    
+    [[CCDirector sharedDirector] replaceScene: [StartGameLayer scene]];
 }
 
 //this function will move the game to the help screen layer
