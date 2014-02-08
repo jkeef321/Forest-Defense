@@ -8,6 +8,7 @@
 
 #import "StartGameLayer.h"
 #import "MainMenuLayer.h"
+#import "Level_1_1.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -81,6 +82,8 @@
 - (void) startLvl1_1
 {
     NSLog(@"Start Level 1 1");
+    
+    [[CCDirector sharedDirector] replaceScene: [Level_1_1 scene]];
     
 }
 

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E57298F18A5BF9A007D077B /* Level_1_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E57298E18A5BF9A007D077B /* Level_1_1.m */; };
 		4E5D645B188B527500A51804 /* StartGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D645A188B527500A51804 /* StartGameLayer.m */; };
+		4EC244D418A6E1AA00D8B0EF /* background_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC244D318A6E1AA00D8B0EF /* background_map.png */; };
 		4ED676D81865CC58001B0549 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED676D71865CC58001B0549 /* QuartzCore.framework */; };
 		4ED676DA1865CC58001B0549 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED676D91865CC58001B0549 /* OpenGLES.framework */; };
 		4ED676DC1865CC58001B0549 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED676DB1865CC58001B0549 /* OpenAL.framework */; };
@@ -145,8 +147,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E57298D18A5BF9A007D077B /* Level_1_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level_1_1.h; sourceTree = "<group>"; };
+		4E57298E18A5BF9A007D077B /* Level_1_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level_1_1.m; sourceTree = "<group>"; };
 		4E5D6459188B527500A51804 /* StartGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartGameLayer.h; sourceTree = "<group>"; };
 		4E5D645A188B527500A51804 /* StartGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartGameLayer.m; sourceTree = "<group>"; };
+		4EC244D318A6E1AA00D8B0EF /* background_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_map.png; path = Resources/background_map.png; sourceTree = "<group>"; };
 		4ED676D41865CC58001B0549 /* Forest Defense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forest Defense.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED676D71865CC58001B0549 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4ED676D91865CC58001B0549 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -488,6 +493,8 @@
 		4ED676EB1865CC58001B0549 /* Forest Defense */ = {
 			isa = PBXGroup;
 			children = (
+				4E57298D18A5BF9A007D077B /* Level_1_1.h */,
+				4E57298E18A5BF9A007D077B /* Level_1_1.m */,
 				4ED6787C1865CC5F001B0549 /* AppDelegate.h */,
 				4ED6787D1865CC5F001B0549 /* AppDelegate.m */,
 				4ED6787F1865CC5F001B0549 /* MainMenuLayer.h */,
@@ -506,6 +513,7 @@
 		4ED676EC1865CC58001B0549 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EC244D318A6E1AA00D8B0EF /* background_map.png */,
 				4ED676ED1865CC58001B0549 /* Default.png */,
 				4ED676EF1865CC58001B0549 /* Default@2x.png */,
 				4ED676F11865CC58001B0549 /* Default-568h@2x.png */,
@@ -935,6 +943,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC244D418A6E1AA00D8B0EF /* background_map.png in Resources */,
 				4ED676FE1865CC58001B0549 /* Icon.png in Resources */,
 				4ED6785C1865CC5F001B0549 /* ChangeLog in Resources */,
 				4ED676F01865CC58001B0549 /* Default@2x.png in Resources */,
@@ -1041,6 +1050,7 @@
 				4ED677BF1865CC5C001B0549 /* CCTexture2D.m in Sources */,
 				4ED677D41865CC5C001B0549 /* CCTMXTiledMap.m in Sources */,
 				4ED677951865CC5B001B0549 /* CCRenderTexture.m in Sources */,
+				4E57298F18A5BF9A007D077B /* Level_1_1.m in Sources */,
 				4ED6771D1865CC59001B0549 /* CCActionInterval.m in Sources */,
 				4ED6778B1865CC5B001B0549 /* CCPhysicsDebugNode.m in Sources */,
 				4ED677111865CC59001B0549 /* CCActionEase.m in Sources */,
