@@ -438,8 +438,8 @@
 		4ED678831865CC5F001B0549 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		4EE8105518C4106A00E352F7 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		4EE8105618C4106A00E352F7 /* Tower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tower.m; sourceTree = "<group>"; };
-		4EE8105818C4109300E352F7 /* watch_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_tower.png; sourceTree = "<group>"; };
-		4EE8105A18C4109B00E352F7 /* tower_construction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_construction.png; sourceTree = "<group>"; };
+		4EE8105818C4109300E352F7 /* watch_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watch_tower.png; path = Resources/watch_tower.png; sourceTree = "<group>"; };
+		4EE8105A18C4109B00E352F7 /* tower_construction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tower_construction.png; path = Resources/tower_construction.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
