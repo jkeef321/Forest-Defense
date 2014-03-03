@@ -144,6 +144,9 @@
 		4ED6787E1865CC5F001B0549 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6787D1865CC5F001B0549 /* AppDelegate.m */; };
 		4ED678811865CC5F001B0549 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED678801865CC5F001B0549 /* MainMenuLayer.m */; };
 		4ED678841865CC5F001B0549 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED678831865CC5F001B0549 /* IntroLayer.m */; };
+		4EE8105718C4106A00E352F7 /* Tower.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8105618C4106A00E352F7 /* Tower.m */; };
+		4EE8105918C4109300E352F7 /* watch_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE8105818C4109300E352F7 /* watch_tower.png */; };
+		4EE8105B18C4109B00E352F7 /* tower_construction.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE8105A18C4109B00E352F7 /* tower_construction.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -433,6 +436,10 @@
 		4ED678801865CC5F001B0549 /* MainMenuLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		4ED678821865CC5F001B0549 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		4ED678831865CC5F001B0549 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		4EE8105518C4106A00E352F7 /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
+		4EE8105618C4106A00E352F7 /* Tower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tower.m; sourceTree = "<group>"; };
+		4EE8105818C4109300E352F7 /* watch_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch_tower.png; sourceTree = "<group>"; };
+		4EE8105A18C4109B00E352F7 /* tower_construction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_construction.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,6 +500,8 @@
 		4ED676EB1865CC58001B0549 /* Forest Defense */ = {
 			isa = PBXGroup;
 			children = (
+				4EE8105518C4106A00E352F7 /* Tower.h */,
+				4EE8105618C4106A00E352F7 /* Tower.m */,
 				4E57298D18A5BF9A007D077B /* Level_1_1.h */,
 				4E57298E18A5BF9A007D077B /* Level_1_1.m */,
 				4ED6787C1865CC5F001B0549 /* AppDelegate.h */,
@@ -513,6 +522,8 @@
 		4ED676EC1865CC58001B0549 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EE8105A18C4109B00E352F7 /* tower_construction.png */,
+				4EE8105818C4109300E352F7 /* watch_tower.png */,
 				4EC244D318A6E1AA00D8B0EF /* background_map.png */,
 				4ED676ED1865CC58001B0549 /* Default.png */,
 				4ED676EF1865CC58001B0549 /* Default@2x.png */,
@@ -948,12 +959,14 @@
 				4ED6785C1865CC5F001B0549 /* ChangeLog in Resources */,
 				4ED676F01865CC58001B0549 /* Default@2x.png in Resources */,
 				4ED676FA1865CC58001B0549 /* Icon-Small.png in Resources */,
+				4EE8105B18C4109B00E352F7 /* tower_construction.png in Resources */,
 				4ED676F61865CC58001B0549 /* Icon-72.png in Resources */,
 				4ED676EE1865CC58001B0549 /* Default.png in Resources */,
 				4ED676F81865CC58001B0549 /* Icon-Small-50.png in Resources */,
 				4ED677031865CC58001B0549 /* iTunesArtwork in Resources */,
 				4ED676FC1865CC58001B0549 /* Icon-Small@2x.png in Resources */,
 				4ED676F41865CC58001B0549 /* Default-Landscape~ipad.png in Resources */,
+				4EE8105918C4109300E352F7 /* watch_tower.png in Resources */,
 				4ED676F21865CC58001B0549 /* Default-568h@2x.png in Resources */,
 				4ED677001865CC58001B0549 /* Icon@2x.png in Resources */,
 			);
@@ -1019,6 +1032,7 @@
 				4ED6775D1865CC5A001B0549 /* CCGrid.m in Sources */,
 				4ED6786C1865CC5F001B0549 /* quaternion.c in Sources */,
 				4ED677B91865CC5C001B0549 /* CCSpriteFrame.m in Sources */,
+				4EE8105718C4106A00E352F7 /* Tower.m in Sources */,
 				4ED677261865CC59001B0549 /* CCActionProgressTimer.m in Sources */,
 				4ED677081865CC58001B0549 /* CCAction.m in Sources */,
 				4ED678401865CC5E001B0549 /* CocosDenshion.m in Sources */,
