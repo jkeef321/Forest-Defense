@@ -45,7 +45,7 @@
         [self addChild:background_image];
         [background_image setPosition:ccp(size.width/2,size.height/2)];
         
-		
+		//test
         
 	}
 	return self;
