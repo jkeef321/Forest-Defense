@@ -12,7 +12,11 @@
 // Level_1_1
 @interface Level_1_1 : CCLayer
 {
+    NSMutableArray *towerLocations;
 }
+
+//create an array to track towers that are built in the game
+@property (nonatomic, strong) NSMutableArray * towers_in_game;
 
 // returns a CCScene that contains the Level_1_1 as the only child
 +(CCScene *) scene;
