@@ -60,7 +60,7 @@
         
 	}
     
-    CGSize size = [[CCDirector sharedDirector] winSize];
+    //CGSize size = [[CCDirector sharedDirector] winSize];
     
     //intialize the array with a capacity of 4
     towerLocations = [[NSMutableArray alloc] initWithCapacity:4];
@@ -275,7 +275,7 @@
     
     //playerHp--;
     _currentPlayer.currentLives--;
-    [ui_hp_label setString:[NSString stringWithFormat:@"HP: %d",_currentPlayer.currentLives]];
+    //[ui_hp_label setString:[NSString stringWithFormat:@"HP: %d",_currentPlayer.currentLives]];
     if (_currentPlayer.currentLives <=0) {
         [self doGameOver];
     }

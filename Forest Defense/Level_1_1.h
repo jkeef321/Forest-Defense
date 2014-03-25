@@ -19,9 +19,9 @@
     int wave;
     
     //this label will display what wave
-    CCLabelBMFont * ui_wave_label;
+    //CCLabelBMFont * ui_wave_label;
     
-    CCLabelBMFont * ui_hp_label;
+    //CCLabelBMFont * ui_hp_label;
     BOOL gameOver;
 }
 
