@@ -8,6 +8,11 @@
 
 #import "Level_1_1.h"
 #import "Tower.h"
+#import "Waypoint.h"
+#import "Enemy.h"
+#import "GameOverLayer.h"
+#import "GameOverWINLayer.h"
+#import "Player.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -18,6 +23,8 @@
 
 //we synthesize the property so we can access it via setters and getters
 @synthesize towers_in_game;
+@synthesize waypoints;
+@synthesize enemies;
 
 // Helper class method that creates a Scene with the Level_1_1 as the only child.
 +(CCScene *) scene
@@ -53,21 +60,45 @@
         
 	}
     
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
     //intialize the array with a capacity of 4
     towerLocations = [[NSMutableArray alloc] initWithCapacity:4];
     
     [self loadTowerPositions];
+    [self addWaypoints];
+    
+    enemies = [[NSMutableArray alloc] init];
+    [self loadWave];
+    
+    
+    //ui_wave_label = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"WAVE: %d", wave] fntFile:@"Marker Felt" ];
+    
+    //[ui_wave_label setPosition:ccp(400, size.height-12)];
+    //[ui_wave_label setAnchorPoint:ccp(0,0.5)];
+    
+    //I have no idea why the game crashes when the label is added to the scene
+    //[self addChild:ui_wave_label z:10];
+    
+    //playerHp = 5;
+    
+    //ui_hp_label = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"HP: %d", _currentPlayer.currentLives ] fntFile:@"Marker Felt"];
+    
+    //[ui_hp_label setPosition:ccp(35, size.height-12)];
+    //same problem as above
+    //[self addChild:ui_hp_label z:10];
+    
 	return self;
 }
 
 -(void) loadTowerPositions
 {
-
+    
     CCSprite * tower_base_1 = [CCSprite spriteWithFile:@"tower_construction.png"];
     //add a tag number so they can be deleted later
     tower_base_1.tag = 1;
     [self addChild:tower_base_1];
-    [tower_base_1 setPosition:ccp(160,20)];
+    [tower_base_1 setPosition:ccp(180,20)];
     
     //we are adding these objects to the array so we can check positions when the game starts
     [towerLocations addObject:tower_base_1];
@@ -75,7 +106,7 @@
     CCSprite * tower_base_2 = [CCSprite spriteWithFile:@"tower_construction.png"];
     tower_base_2.tag = 2;
     [self addChild:tower_base_2];
-    [tower_base_2 setPosition:ccp(60,150)];
+    [tower_base_2 setPosition:ccp(80,150)];
     [towerLocations addObject:tower_base_2];
     
     CCSprite * tower_base_3 = [CCSprite spriteWithFile:@"tower_construction.png"];
@@ -87,7 +118,7 @@
     CCSprite * tower_base_4 = [CCSprite spriteWithFile:@"tower_construction.png"];
     tower_base_4.tag = 4;
     [self addChild:tower_base_4];
-    [tower_base_4 setPosition:ccp(300,240)];
+    [tower_base_4 setPosition:ccp(300,200)];
     [towerLocations addObject:tower_base_4];
     
     
@@ -106,7 +137,7 @@
         
         //check the location against each towerlocation to see if the user is selecting a tower
         
-       
+        
         for( CCSprite * tower_loc in towerLocations)
         {
             
@@ -128,7 +159,7 @@
                 
                 //remove the "building" image
                 [self removeChildByTag:tag cleanup:YES];
-                                
+                
             }
         }
         
@@ -136,6 +167,127 @@
     }
     
     
+}
+
+//this method will add the waypoints to the array to create the enemy path
+-(void)addWaypoints
+{
+    //allocate a new array for waypoints
+    waypoints = [[NSMutableArray alloc] init];
+    
+    //create the last waypoint with a location then add it to the waypoints array
+    //the next set of 6 waypoints will determine the enemy path
+    Waypoint * wp6 = [Waypoint nodeWithTheGame:self location:ccp(550,20)];
+    [waypoints addObject:wp6];
+    
+    Waypoint * wp5 = [Waypoint nodeWithTheGame:self location:ccp(450,20)];
+    [waypoints addObject:wp5];
+    wp5.nextWay = wp6;
+    
+    Waypoint * wp4 = [Waypoint nodeWithTheGame:self location:ccp(450,160)];
+    [waypoints addObject:wp4];
+    wp4.nextWay = wp5;
+    
+    Waypoint * wp3 = [Waypoint nodeWithTheGame:self location:ccp(140,160)];
+    [waypoints addObject:wp3];
+    wp3.nextWay = wp4;
+    
+    Waypoint * wp2 = [Waypoint nodeWithTheGame:self location:ccp(140,20)];
+    [waypoints addObject:wp2];
+    wp2.nextWay = wp3;
+    
+    Waypoint * wp1 = [Waypoint nodeWithTheGame:self location:ccp(0,20)];
+    [waypoints addObject:wp1];
+    wp1.nextWay = wp2;
+    
+    
+    
+}
+
+//this method will determine if the two circles are colliding with one another
+//it is used for collision detection
+-(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius collisionWithCircle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo
+{
+    float xdif = circlePoint.x - circlePointTwo.x;
+    float ydif = circlePoint.y - circlePointTwo.y;
+    
+    float distance = sqrt(xdif*xdif + ydif*ydif);
+    
+    if( distance <= radius+radiusTwo)
+        return YES;
+    
+    return NO;
+    
+    
+}
+
+//this function will load a wave definition from a property list
+-(BOOL)loadWave
+{
+    //load wave data from plist file
+    NSString * plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
+    NSArray * waveData = [NSArray arrayWithContentsOfFile:plistPath];
+    
+    //if wave doesn't exist, return no
+    if( wave >= [waveData count])
+    {
+        return NO;
+    }
+    
+    //get currentwave data from plist
+    NSArray * currentWaveData = [NSArray arrayWithArray:[waveData objectAtIndex:wave]];
+    
+    //for each create an enemy each entry in wave data
+    for(NSDictionary * enemyData in currentWaveData)
+    {
+        Enemy * enemy = [Enemy nodeWithTheGame:self];
+        [enemies addObject:enemy];
+        [enemy schedule:@selector(doActivate)
+               interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
+    }
+    
+    //increment wave counter
+    wave++;
+    //set label to current wave
+    //[ui_wave_label setString:[NSString stringWithFormat:@"WAVE: %d",wave]];
+    
+    return YES;
+    
+}
+
+//if an enemy got killed, then....
+-(void)enemyGotKilled {
+    
+    if ([enemies count]<=0) //If there are no more enemies.
+    {
+        if(![self loadWave])
+        {
+            NSLog(@"You win!");
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols
+                                                       transitionWithDuration:1
+                                                       scene:[GameOverWINLayer scene]]];
+        }
+    }
+}
+
+
+-(void)getHpDamage {
+    
+    //playerHp--;
+    _currentPlayer.currentLives--;
+    [ui_hp_label setString:[NSString stringWithFormat:@"HP: %d",_currentPlayer.currentLives]];
+    if (_currentPlayer.currentLives <=0) {
+        [self doGameOver];
+    }
+}
+
+-(void)doGameOver {
+    if (!gameOver) {
+        gameOver = YES;
+        [[CCDirector sharedDirector]
+         replaceScene:[CCTransitionRotoZoom transitionWithDuration:1
+                                                             scene:[GameOverLayer scene]]];
+    }
 }
 
 // on "dealloc" you need to release all your retained objects

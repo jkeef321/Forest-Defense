@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Level_1_1.h"
 #import "cocos2d.h"
+#import "Enemy.h"
 
 //it needs to be a subclass of CCNode beacuse of the Cocos2d framework (you can't add it to a scene then
 @interface Tower : CCNode
@@ -18,6 +19,10 @@
     int damage;
     int fire_rate;
     int cost;
+    //Is the tower attacking
+    BOOL attacking;
+    //What Enemy is the tower fighting
+    Enemy * chosenEnemy;
     
 }
 
@@ -33,5 +38,6 @@
 //this is the constructor for objective c, this only happens when the class is init.... it needs to start with "init" and a "-".... weird language
 -(id)initWithTheGame:(Level_1_1 *)_scene location:(CGPoint)location;
 
+-(void)targetKilled;
 
 @end
