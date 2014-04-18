@@ -12,7 +12,7 @@
 @implementation Tower
 
 //getters and setters
-@synthesize tower_sprite, scene;
+@synthesize tower_sprite, scene, range, damage, fire_rate, shoot_sprite;
 
 //this is the incode constructor
 +(id) nodeWithTheGame:(Level_1_1*)_scene location:(CGPoint)location
@@ -25,27 +25,29 @@
 {
     if( (self=[super init]))
     {
-        scene = _scene;
+        //scene = _scene;
         
-        range = 70;
-        damage = 10;
-        fire_rate = 1;
+        //range = 7000;
+        //damage = 1000;
+        //fire_rate = 1;
         
         
         //add an image to your sprite
-        tower_sprite = [CCSprite spriteWithFile:@"watch_tower.png"];
+        //tower_sprite = [CCSprite spriteWithFile:@"watch_tower.png"];
+        
+        //shoot_sprite = @"arrow.png";
         
         //add child to "self"... you will add yourself to the scene... which is level_1_1
-        [self addChild:tower_sprite];
+        //[self addChild:tower_sprite];
         
         //set the position of the sprite on the screen
-        [tower_sprite setPosition:location];
+        //[tower_sprite setPosition:location];
         
         //add the "tower" to the scene
-        [scene addChild:self];
+        //[scene addChild:self];
         
         //update the scene to display the new images
-        [self scheduleUpdate];
+        //[self scheduleUpdate];
         
     }
     
@@ -72,7 +74,7 @@
 //this function will create an "arrow" on screen and fire it towards the enemy, by first starting at the tower and going to the enemy
 -(void)shootWeapon
 {
-    CCSprite * arrow = [CCSprite spriteWithFile:@"arrow.png"];
+    CCSprite * arrow = [CCSprite spriteWithFile:shoot_sprite];;
     [scene addChild:arrow];
     [arrow setPosition:tower_sprite.position];
     [arrow runAction:[CCSequence actions:

@@ -15,6 +15,8 @@
 		4E79E6A218DF1D7B00622840 /* goblin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E79E6A118DF1D7B00622840 /* goblin.png */; };
 		4E79E6A418DF431E00622840 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E79E6A318DF431E00622840 /* arrow.png */; };
 		4EC244D418A6E1AA00D8B0EF /* background_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC244D318A6E1AA00D8B0EF /* background_map.png */; };
+		4EC24B0318ECD17F009BF3F7 /* ArcherTower.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC24B0218ECD17F009BF3F7 /* ArcherTower.m */; };
+		4EC24B0518ECD863009BF3F7 /* tower_round.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC24B0418ECD863009BF3F7 /* tower_round.png */; };
 		4ECA1D7E18DE29E00047853B /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA1D7D18DE29E00047853B /* Waypoint.m */; };
 		4ECA1D8118DE2FA50047853B /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA1D8018DE2FA50047853B /* Enemy.m */; };
 		4ED676D81865CC58001B0549 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED676D71865CC58001B0549 /* QuartzCore.framework */; };
@@ -170,6 +172,9 @@
 		4E79E6A118DF1D7B00622840 /* goblin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goblin.png; sourceTree = "<group>"; };
 		4E79E6A318DF431E00622840 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		4EC244D318A6E1AA00D8B0EF /* background_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_map.png; path = Resources/background_map.png; sourceTree = "<group>"; };
+		4EC24B0118ECD17F009BF3F7 /* ArcherTower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArcherTower.h; sourceTree = "<group>"; };
+		4EC24B0218ECD17F009BF3F7 /* ArcherTower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArcherTower.m; sourceTree = "<group>"; };
+		4EC24B0418ECD863009BF3F7 /* tower_round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_round.png; sourceTree = "<group>"; };
 		4ECA1D7C18DE29E00047853B /* Waypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
 		4ECA1D7D18DE29E00047853B /* Waypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
 		4ECA1D7F18DE2FA50047853B /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -533,6 +538,7 @@
 		4ED676EC1865CC58001B0549 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EC24B0418ECD863009BF3F7 /* tower_round.png */,
 				4E79E6A318DF431E00622840 /* arrow.png */,
 				4E79E6A118DF1D7B00622840 /* goblin.png */,
 				4EE8105A18C4109B00E352F7 /* tower_construction.png */,
@@ -949,6 +955,8 @@
 				4EE8105618C4106A00E352F7 /* Tower.m */,
 				4EE84F4018E1BA6F00EB0100 /* Player.h */,
 				4EE84F4118E1BA6F00EB0100 /* Player.m */,
+				4EC24B0118ECD17F009BF3F7 /* ArcherTower.h */,
+				4EC24B0218ECD17F009BF3F7 /* ArcherTower.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -1008,6 +1016,7 @@
 				4ED676FE1865CC58001B0549 /* Icon.png in Resources */,
 				4ED6785C1865CC5F001B0549 /* ChangeLog in Resources */,
 				4E79E6A018DF188900622840 /* Waves.plist in Resources */,
+				4EC24B0518ECD863009BF3F7 /* tower_round.png in Resources */,
 				4ED676F01865CC58001B0549 /* Default@2x.png in Resources */,
 				4ED676FA1865CC58001B0549 /* Icon-Small.png in Resources */,
 				4EE8105B18C4109B00E352F7 /* tower_construction.png in Resources */,
@@ -1045,6 +1054,7 @@
 				4ED677761865CC5B001B0549 /* CCNode+Debug.m in Sources */,
 				4ED677511865CC5A001B0549 /* ccFPSImages.m in Sources */,
 				4ED677D71865CC5D001B0549 /* CCTMXXMLParser.m in Sources */,
+				4EC24B0318ECD17F009BF3F7 /* ArcherTower.m in Sources */,
 				4ED6786E1865CC5F001B0549 /* ray2.c in Sources */,
 				4ED678091865CC5D001B0549 /* base64.c in Sources */,
 				4ED6772C1865CC59001B0549 /* CCActionTween.m in Sources */,

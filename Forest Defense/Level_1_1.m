@@ -14,6 +14,8 @@
 #import "GameOverWINLayer.h"
 #import "Player.h"
 
+#import "ArcherTower.h"
+
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
@@ -146,7 +148,7 @@
                 NSLog(@"Tower Location was HIT");
                 
                 //create a new tower at the location
-                Tower * new_tower = [Tower nodeWithTheGame:self location:location];
+                ArcherTower * new_tower = [ArcherTower nodeWithTheGame:self location:location];
                 
                 //add the tower to the in memory array of towers
                 [towers_in_game addObject:new_tower];
